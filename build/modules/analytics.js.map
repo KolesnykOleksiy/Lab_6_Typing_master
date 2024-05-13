@@ -1,0 +1,1 @@
+{"version":3,"file":"analytics.js","sourceRoot":"","sources":["../../src/modules/analytics.ts"],"names":[],"mappings":"AAAA,MAAM,OAAO,SAAS;IAGlB,YAAY,QAAgB;QACxB,IAAI,CAAC,UAAU,GAAG,QAAQ,CAAC;IAC/B,CAAC;IAEM,QAAQ;QACX,OAAO,YAAY,IAAI,CAAC,UAAU,EAAE,CAAC;IACzC,CAAC;CACJ"}

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="style.css">
+    <script type="module" defer src="index.js"></script>
+</head>
+<body>
+<div class="container">
+    <div class="header">
+        <h1>Відображення тексту</h1>
+        <form id="languageForm">
+            <div class="form-group">
+                <label>Мова:</label>
+                <div class="radio-group">
+                    <input type="radio" id="ukrainian" name="language" value="ukrainian" checked>
+                    <label for="ukrainian">Українська</label><br>
+                    <input type="radio" id="english" name="language" value="english">
+                    <label for="english">English</label><br>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label>Пунктуація:</label>
+                <div class="radio-group">
+                    <input type="radio" id="withPunctuation" name="punctuation" value="withPunctuation" checked>
+                    <label for="withPunctuation">З пунктуацією</label><br>
+                    <input type="radio" id="withoutPunctuation" name="punctuation" value="withoutPunctuation">
+                    <label for="withoutPunctuation">Без пунктуації</label><br>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label>Кількість слів:</label>
+                <div class="radio-group">
+                    <input type="radio" id="words10" name="words" value="10">
+                    <label for="words10">10</label><br>
+                    <input type="radio" id="words30" name="words" value="30" checked>
+                    <label for="words30">30</label><br>
+                    <input type="radio" id="words60" name="words" value="60">
+                    <label for="words60">60</label><br>
+                </div>
+            </div>
+        </form>
+    </div>
+    <div class="text-section">
+        <div id="example"></div>
+    </div>
+</div>
+</body>
+</html>
