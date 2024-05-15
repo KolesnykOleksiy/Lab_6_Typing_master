@@ -1,5 +1,6 @@
-import { Timer } from '../build/modules/Timer.js'; //імпортую вже сам об'єкт
-export const timer = new Timer();
+import { Timer } from '../build/modules/Timer.js';
+export const timer = new Timer(); //export timer obj for stopping timer in another script
+
 document.addEventListener('DOMContentLoaded', () => {
     const timerElement = document.getElementById('timer');
     const outputElement = document.getElementById('output');
@@ -25,14 +26,6 @@ document.addEventListener('DOMContentLoaded', () => {
     };
 
     document.addEventListener('keydown', startTyping);
-
-    // if (outputElement) {
-    //     outputElement.addEventListener('input', (event) => {
-    //         if (isTypingFinished(event)) {
-    //             stopTyping();
-    //         }
-    //     });
-    // }
 
     if (languageForm) {
         languageForm.addEventListener('change', () => {

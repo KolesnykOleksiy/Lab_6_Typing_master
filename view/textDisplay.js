@@ -1,30 +1,15 @@
 import { TextDisplayer } from '../build/modules/TextDisplayer.js';
-import { UkrWithPunctuationTextReader } from '../build/modules/TextRiders/UkrWithPunctuationTextReader.js';
-import { UkrNoPunctuationTextReader } from '../build/modules/TextRiders/UkrNoPunctuationTextReader.js';
-import { EngWithPunctuationTextReader } from '../build/modules/TextRiders/EngWithPunctuationTextReader.js';
-import { EngNoPunctuationTextReader } from '../build/modules/TextRiders/EngNoPunctuationTextReader.js';
+import { FactoryTextPicker } from '../build/modules/TextRiders/FactoryTextPicker.js';
 
-
-function createTextDisplayer(language, punctuation) {  //factory method
-    let textReader;
-    if (language === 'ukrainian' && punctuation === 'withPunctuation') {
-        textReader = new UkrWithPunctuationTextReader();
-    } else if(language === 'ukrainian' && punctuation === 'withoutPunctuation') {
-        textReader = new UkrNoPunctuationTextReader();
-    } else if(language === 'english' && punctuation === 'withoutPunctuation'){
-        textReader = new EngNoPunctuationTextReader();
-    }else {
-        textReader = new EngWithPunctuationTextReader();
-    }
-    return new TextDisplayer(textReader);
-}
-
+// get input values from html
 function displayText() {
     const language = document.querySelector('input[name="language"]:checked').value;
     const punctuation = document.querySelector('input[name="punctuation"]:checked').value;
     const words = parseInt(document.querySelector('input[name="words"]:checked').value);
 
-    const textDisplayer = createTextDisplayer(language, punctuation);
+//use factory method for displaying text
+    let text = new FactoryTextPicker().chooseText(language, punctuation)
+    let textDisplayer = new TextDisplayer(text)
 
     switch (words) {
         case 10:
@@ -62,6 +47,7 @@ function displayText() {
     }
 }
 
+//call displayText function every time when inputs changing
 document.querySelectorAll('input[name="language"]').forEach((radio) => {
     radio.addEventListener('change', displayText);
 });

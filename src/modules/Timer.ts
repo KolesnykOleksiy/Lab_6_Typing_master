@@ -49,11 +49,10 @@ export class Timer {
 // show result
     getElapsedTime(): number {
         if (this.startTime !== null) {
-            const elapsedTime = (Date.now() - this.startTime) / 1000; // в секундах
+            const elapsedTime = (Date.now() - this.startTime) / 1000; // in seconds
             return elapsedTime;
         }
         return 0;
     }
 }
 
-//export const timer = new Timer();
