@@ -1,4 +1,4 @@
-class Timer {
+export class Timer {
     constructor() {
         this.startTime = null;
         this.intervalId = null;
@@ -40,6 +40,14 @@ class Timer {
     notifyObservers(time) {
         this.observers.forEach(observer => observer(time));
     }
+    // show result
+    getElapsedTime() {
+        if (this.startTime !== null) {
+            const elapsedTime = (Date.now() - this.startTime) / 1000; // в секундах
+            return elapsedTime;
+        }
+        return 0;
+    }
 }
-export const timer = new Timer();
+//export const timer = new Timer();
 //# sourceMappingURL=Timer.js.map

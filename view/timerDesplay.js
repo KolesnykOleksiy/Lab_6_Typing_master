@@ -1,5 +1,5 @@
-import { timer } from '../build/modules/Timer.js'; //імпортую вже сам об'єкт
-
+import { Timer } from '../build/modules/Timer.js'; //імпортую вже сам об'єкт
+export const timer = new Timer();
 document.addEventListener('DOMContentLoaded', () => {
     const timerElement = document.getElementById('timer');
     const outputElement = document.getElementById('output');
@@ -40,5 +40,5 @@ document.addEventListener('DOMContentLoaded', () => {
             timer.reset();
         });
     }
-
+    window.stopTyping = stopTyping;
 });

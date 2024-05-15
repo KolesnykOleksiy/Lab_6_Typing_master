@@ -1,4 +1,5 @@
 //файл для алгоритму правильно/неправильно введених символів
+import {timer} from "./timerDesplay.js";
 
 const languageForm = document.getElementById('languageForm');
 languageForm.addEventListener('change', function(event) {
@@ -9,6 +10,12 @@ const spans = document.querySelectorAll('[id^="char_"]');
 let check = 0;
 
 document.addEventListener('keypress', function(event) {
+    let idNumber =  getLastChildIdNumber();
+    //console.log(idNumber)
+    if (check === idNumber) {
+        stopTyping();
+        showResult();
+    }
     const keyPressed = event.key;
     let char = "char_"+check;
     let key = document.getElementById(char)
@@ -21,7 +28,24 @@ document.addEventListener('keypress', function(event) {
         key.style.color = 'red';
     }
 
-    if (check === spans.length) {
-        console.log('Всі символи введено правильно!');
-    }
 });
+function showResult() {
+    const elapsedTime = timer.getElapsedTime();
+    const totalCharacters = getLastChildIdNumber();
+    const speed = ((totalCharacters / elapsedTime) * 60).toFixed(2);
+    alert(`Всі символи введено правильно! Ваша швидкість: ${speed} символів/хвилину.`);
+    window.location.reload();
+}
+
+function getLastChildIdNumber() {
+    const container = document.getElementById('output');
+    const lastChild = container.lastElementChild;
+    if (lastChild) {
+        const lastChildId = lastChild.id;
+        const idNumberString = lastChildId.match(/\d+/)[0];
+        const idNumber = parseInt(idNumberString, 10);
+        return idNumber;
+    } else {
+        return null;
+    }
+}

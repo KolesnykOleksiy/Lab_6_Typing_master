@@ -1,4 +1,4 @@
-class Timer {
+export class Timer {
     private startTime: number | null = null;
     private intervalId: number | null | ReturnType<typeof setInterval> = null;
     private observers: ((time: string) => void)[] = [];
@@ -46,6 +46,14 @@ class Timer {
     private notifyObservers(time: string) {
         this.observers.forEach(observer => observer(time));
     }
+// show result
+    getElapsedTime(): number {
+        if (this.startTime !== null) {
+            const elapsedTime = (Date.now() - this.startTime) / 1000; // в секундах
+            return elapsedTime;
+        }
+        return 0;
+    }
 }
 
-export const timer = new Timer();
+//export const timer = new Timer();
