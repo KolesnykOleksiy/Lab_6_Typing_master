@@ -1,23 +1,27 @@
-//створення з тексту масиву символів з унікальними ід
-var observer = new MutationObserver(function(mutationsList, observer) {
+//this script monitor text changes in 'example', when text changed split the text by letters and sets a unique id
+
+
+//monitor text changes in 'example' block
+let observer = new MutationObserver(function(mutationsList, observer) {
     mutationsList.forEach(function(mutation) {
         if (mutation.type === 'childList' && mutation.target.id === 'example') {
-            var newText = mutation.target.innerText.trim();
+            let newText = mutation.target.innerText.trim();
             updateText(newText);
         }
     });
 });
 
-var targetNode = document.getElementById('example');
-var config = { childList: true, subtree: true };
-
+let targetNode = document.getElementById('example');
+let config = { childList: true, subtree: true };
 observer.observe(targetNode, config);
 
+
+//text-splitting function
 function updateText(text) {
-    var outputDiv = document.getElementById("output");
+    let outputDiv = document.getElementById("output");
     outputDiv.innerHTML = '';
-    for (var i = 0; i < text.length; i++) {
-        var charElement = document.createElement('span');
+    for (let i = 0; i < text.length; i++) {
+        let charElement = document.createElement('span');
         charElement.textContent = text[i];
         charElement.id = 'char_' + i;
         outputDiv.appendChild(charElement);

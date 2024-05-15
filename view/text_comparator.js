@@ -1,21 +1,21 @@
-//файл для алгоритму правильно/неправильно введених символів
-import {timer} from "./timerDesplay.js";
+//file for algorithm of correctly/incorrectly typed characters
+
+import {timer} from "./timerDіsplay.js";
 
 const languageForm = document.getElementById('languageForm');
 languageForm.addEventListener('change', function(event) {
     check = 0;
 });
 
-const spans = document.querySelectorAll('[id^="char_"]');
 let check = 0;
-
 document.addEventListener('keypress', function(event) {
     let idNumber =  getLastChildIdNumber();
-    //console.log(idNumber)
+
     if (check === idNumber) {
         stopTyping();
         showResult();
     }
+
     const keyPressed = event.key;
     let char = "char_"+check;
     let key = document.getElementById(char)
