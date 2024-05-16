@@ -1,6 +1,7 @@
 //file for algorithm of correctly/incorrectly typed characters
 
-import {timer} from "./timerDіsplay.js";
+import { Timer } from '../build/modules/Timer.js';
+const timer = Timer.getInstance();
 
 const languageForm = document.getElementById('languageForm');
 languageForm.addEventListener('change', function(event) {

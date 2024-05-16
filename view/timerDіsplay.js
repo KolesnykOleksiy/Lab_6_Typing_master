@@ -1,5 +1,5 @@
 import { Timer } from '../build/modules/Timer.js';
-export const timer = new Timer(); //export timer obj for stopping timer in another script
+const timer = Timer.getInstance()
 
 document.addEventListener('DOMContentLoaded', () => {
     const timerElement = document.getElementById('timer');

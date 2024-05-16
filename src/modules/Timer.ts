@@ -1,11 +1,23 @@
 export class Timer {
+    private static instance: Timer | null = null;
     private startTime: number | null = null;
     private intervalId: number | null | ReturnType<typeof setInterval> = null;
     private observers: ((time: string) => void)[] = [];
 
+    private constructor() {}
+
+    public static getInstance(): Timer {
+        if (this.instance === null) {
+            this.instance = new Timer();
+        }
+        return this.instance;
+    }
+
     start() {
-        this.startTime = Date.now();
-        this.intervalId = setInterval(() => this.update(), 1000);
+        if (this.startTime === null) {
+            this.startTime = Date.now();
+            this.intervalId = setInterval(() => this.update(), 1000);
+        }
     }
 
     stop() {
@@ -46,7 +58,8 @@ export class Timer {
     private notifyObservers(time: string) {
         this.observers.forEach(observer => observer(time));
     }
-// show result
+
+    //show result
     getElapsedTime(): number {
         if (this.startTime !== null) {
             const elapsedTime = (Date.now() - this.startTime) / 1000; // in seconds
@@ -55,4 +68,3 @@ export class Timer {
         return 0;
     }
 }
-
