@@ -4,9 +4,17 @@ export class Timer {
         this.intervalId = null;
         this.observers = [];
     }
+    static getInstance() {
+        if (this.instance === null) {
+            this.instance = new Timer();
+        }
+        return this.instance;
+    }
     start() {
-        this.startTime = Date.now();
-        this.intervalId = setInterval(() => this.update(), 1000);
+        if (this.startTime === null) {
+            this.startTime = Date.now();
+            this.intervalId = setInterval(() => this.update(), 1000);
+        }
     }
     stop() {
         if (this.intervalId !== null) {
@@ -40,14 +48,14 @@ export class Timer {
     notifyObservers(time) {
         this.observers.forEach(observer => observer(time));
     }
-    // show result
+    //show result
     getElapsedTime() {
         if (this.startTime !== null) {
-            const elapsedTime = (Date.now() - this.startTime) / 1000; // в секундах
+            const elapsedTime = (Date.now() - this.startTime) / 1000; // in seconds
             return elapsedTime;
         }
         return 0;
     }
 }
-//export const timer = new Timer();
+Timer.instance = null;
 //# sourceMappingURL=Timer.js.map
