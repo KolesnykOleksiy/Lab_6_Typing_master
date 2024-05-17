@@ -5,7 +5,7 @@
    2. Open in IDE like PhpStorm and run index.html file in browser.
 2. Program functionality
 
-On the browser page, it is possible to choose text, language and number of words options.
+On the browser page, it is possible to choose text, language and number of words options. User can choose only the language, punctuation or the number of words, the words themselves are randomly selected from a large text document.
 When you have selected it you can start typing the text (just press the first letter on the keyboard).The timer will start automatically.
 
 If you enter the correct symbol, it turns green and the cursor moves on -
