@@ -1,9 +1,8 @@
 import { Timer } from '../build/modules/Timer.js';
-const timer = Timer.getInstance()
+const timer = Timer.getInstance();
 
 document.addEventListener('DOMContentLoaded', () => {
     const timerElement = document.getElementById('timer');
-    const outputElement = document.getElementById('output');
     const languageForm = document.getElementById('languageForm');
     let timerRunning = false;
 

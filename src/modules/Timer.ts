@@ -1,7 +1,7 @@
 export class Timer {
     private static instance: Timer | null = null;
     private startTime: number | null = null;
-    private intervalId: number | null | ReturnType<typeof setInterval> = null;
+    private intervalId: ReturnType<typeof setInterval> | null = null;
     private observers: ((time: string) => void)[] = [];
 
     private constructor() {}
@@ -22,7 +22,7 @@ export class Timer {
 
     stop() {
         if (this.intervalId !== null) {
-            clearInterval(this.intervalId as NodeJS.Timeout);
+            clearInterval(this.intervalId);
             this.intervalId = null;
         }
     }
@@ -59,11 +59,9 @@ export class Timer {
         this.observers.forEach(observer => observer(time));
     }
 
-    //show result
     getElapsedTime(): number {
         if (this.startTime !== null) {
-            const elapsedTime = (Date.now() - this.startTime) / 1000; // in seconds
-            return elapsedTime;
+            return (Date.now() - this.startTime) / 1000; // in seconds
         }
         return 0;
     }
