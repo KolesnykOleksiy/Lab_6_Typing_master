@@ -9,5 +9,6 @@ document.addEventListener('DOMContentLoaded', () => {
 		} else {
 			themeStylesheet.setAttribute('href', 'light-theme.css')
 		}
+		themeToggleButton.blur()
 	})
 })
