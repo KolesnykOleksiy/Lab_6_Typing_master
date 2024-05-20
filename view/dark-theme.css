@@ -1,0 +1,139 @@
+:root {
+	--background-color: #333333;
+	--text-color: #ffffff;
+	--container-background-color: #444444;
+	--box-shadow-color: rgba(0, 0, 0, 0.5);
+}
+
+body,
+html {
+	height: 100%;
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+body {
+	font-family: 'Arial', sans-serif;
+	margin: 0;
+	padding: 0;
+	background-color: var(--background-color);
+	color: var(--text-color);
+}
+
+.container {
+	max-width: 800px;
+	margin: 20px auto;
+	padding: 20px;
+	background-color: var(--container-background-color);
+	border-radius: 10px;
+	box-shadow: 0 0 10px var(--box-shadow-color);
+	position: relative;
+}
+#themeToggle {
+	position: absolute;
+	width: 20px;
+	height: 20px;
+	padding: 0;
+
+	right: 20px;
+	top: 20px;
+
+	background-color: none;
+	border: 1px solid black;
+	border-radius: 50%;
+}
+#themeToggle img {
+	height: 100%;
+	width: 100%;
+}
+
+.header {
+	text-align: center;
+}
+
+.header h1 {
+	font-family: 'Arial Black', sans-serif;
+	font-size: 32px;
+	color: var(--text-color);
+	margin-bottom: 20px;
+}
+
+.form-group {
+	margin-bottom: 20px;
+}
+
+.label {
+	font-size: 18px;
+	margin-bottom: 10px;
+}
+
+.radio-group {
+	display: flex;
+	flex-wrap: wrap;
+	color: var(--text-color);
+}
+
+.radio-group input[type='radio'] {
+	position: absolute;
+	opacity: 0;
+	width: 0;
+	height: 0;
+}
+
+.radio-group label {
+	cursor: pointer;
+	padding: 8px 12px;
+	border-radius: 6px;
+	border: 1px solid #ccc;
+	margin-right: 10px;
+	transition: background-color 0.3s;
+}
+
+.radio-group label:hover {
+	background-color: #555555;
+}
+
+.radio-group input[type='radio']:checked + label {
+	background-color: #007bff;
+	color: #ffffff;
+	border-color: #007bff;
+}
+
+.text-section {
+	margin-top: 40px;
+	text-align: center;
+}
+
+#example {
+	display: none;
+}
+
+#output {
+	padding: 20px;
+	border: 1px solid #cccccc;
+	border-radius: 8px;
+	background-color: #555555;
+	min-height: 100px;
+	font-size: 18px;
+}
+
+textarea {
+	width: 100%;
+	padding: 10px;
+	border: 1px solid #cccccc;
+	border-radius: 8px;
+	font-size: 16px;
+	resize: none;
+	background-color: var(--container-background-color);
+	color: var(--text-color);
+}
+
+textarea.correct {
+	border-color: #00cc00;
+}
+
+textarea.wrong {
+	border-color: #ff0000;
+}
